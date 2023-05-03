@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
   <file src="src/CallbackStream.php">
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>null|callable</code>
@@ -101,9 +101,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>is_string($method)</code>
     </DocblockTypeContradiction>
-    <MoreSpecificImplementedParamType occurrences="1">
-      <code>$requestTarget</code>
-    </MoreSpecificImplementedParamType>
     <PossiblyNullOperand occurrences="2">
       <code>$this-&gt;uri-&gt;getPort()</code>
       <code>$uri-&gt;getPort()</code>
@@ -286,7 +283,22 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Uri.php">
-    <DocblockTypeContradiction occurrences="10">
+    <MixedArgument occurrences="4">
+      <code>$key</code>
+      <code>$key</code>
+      <code>$matches[0]</code>
+      <code>$value</code>
+    </MixedArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$this-&gt;port</code>
+    </PossiblyNullOperand>
+    <RedundantCast occurrences="1">
+      <code>(int) $port</code>
+    </RedundantCast>
+    <RedundantCondition occurrences="1">
+      <code>gettype($port)</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType occurrences="10">
       <code>! is_numeric($port)</code>
       <code>is_float($port)</code>
       <code>is_object($port)</code>
@@ -297,23 +309,7 @@
       <code>is_string($scheme)</code>
       <code>is_string($user)</code>
       <code>null !== $password &amp;&amp; ! is_string($password)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="5">
-      <code>$key</code>
-      <code>$key</code>
-      <code>$matches[0]</code>
-      <code>$port</code>
-      <code>$value</code>
-    </MixedArgument>
-    <PossiblyNullOperand occurrences="1">
-      <code>$this-&gt;port</code>
-    </PossiblyNullOperand>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(int) $port</code>
-    </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>gettype($port)</code>
-    </RedundantConditionGivenDocblockType>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/functions/create_uploaded_file.legacy.php">
     <MixedArgument occurrences="1">
@@ -511,6 +507,9 @@
     </MixedArgument>
   </file>
   <file src="test/ResponseTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$code</code>
+    </InvalidArgument>
     <LessSpecificReturnStatement occurrences="1">
       <code>$ianaCodesReasonPhrases</code>
     </LessSpecificReturnStatement>
@@ -520,6 +519,9 @@
     <MoreSpecificReturnType occurrences="1">
       <code>list&lt;array{numeric-string, non-empty-string}&gt;</code>
     </MoreSpecificReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$code</code>
+    </PossiblyInvalidArgument>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsInt</code>
     </RedundantConditionGivenDocblockType>
@@ -555,15 +557,19 @@
     </MixedArgument>
   </file>
   <file src="test/UriTest.php">
-    <InvalidScalarArgument occurrences="1">
+    <InvalidArgument occurrences="2">
+      <code>'3001'</code>
       <code>1</code>
-    </InvalidScalarArgument>
+    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$test</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$test</code>
     </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$port</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/functions/NormalizeUploadedFilesTest.php">
     <MixedArgument occurrences="2">
